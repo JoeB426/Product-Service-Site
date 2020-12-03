@@ -7,18 +7,38 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
-  <link rel="shortcut icon" href="/assets/img/placeHolder.png"/>
+  <link rel="shortcut icon" href="/assets/img/GolfLogo.png"/>
   <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
 </head>
-<body>
-  <nav><a href="/login"><img id="logo" src="/assets/img/placeHolder.png" alt="logo"/></a>
-    <div class="navlink"><a href="/logout">Log out</a></div>
+
+<body> 
+  <nav><a href="/login"><img id="logo" src="/assets/img/GolfLogo.png" alt="logo"/></a>
+    <div class="navlink"><a id="loginButton" href="/login">Login</a></div>
+    {{!-- <div class="navlink"><a id="signupButton" href="/signup">Sign up</a></div> --}}
+
+  {{!-- For now, example pages for what everything should look like past logging/signing in --}}
+  {{!-- Pay Option page  --}}
+    <div class="navlink"><a id="payOption" href="/option">Pay Options</a></div>
+
+    {{!-- Pay Info page  --}}
+    <div class="navlink"><a id="payInfo" href="/info">Pay Info</a></div>
+
+    {{!-- Main app page/Scorecard page example to modify and edit quickly  --}}
+    <div class="navlink"><a id="mainExample" href="/main">Main App Page</a></div>
+
   </nav>
-  <section id="makeCard">
-  </section>
-  <section id="cards">
-  </section>
+  <section id="content"></section>
+
+  {{!-- Error Message if user enters username and password incorrectly --}}
+  <div id="otherMessage">
+    <h3><span id="errorMessage">Incorrect Username or Password. Please Try Again.</span></h3>
+  </div>
+
+  <footer>
+    <h1 id="foot">IGME 430 - Golf Scorecard Application Created By: Joe Brucie</h1>
+  </footer>
   
-  <script src="/assets/bundle.js"></script>
+  <script src="/assets/loginBundle.js"></script>
 </body>
 </html>
+

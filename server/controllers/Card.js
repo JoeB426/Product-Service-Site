@@ -14,14 +14,35 @@ const makerPage = (req, res) => {
 };
 
 const makeCard = (req, res) => {
-  if (!req.body.name || !req.body.pars || !req.body.playerScore) {
-    return res.status(400).json({ error: 'Your cards name, set pars, and your score per hole are all required!' });
+  if (!req.body.cardPar1 || !req.body.cardPar2 || !req.body.cardPar3 || !req.body.cardPar4
+    || !req.body.cardPar5 || !req.body.cardPar6 || !req.body.cardPar7 || !req.body.cardPar8
+    || !req.body.cardPar9 || !req.body.userScore1 || !req.body.userScore2 || !req.body.userScore3
+    || !req.body.userScore4 || !req.body.userScore5 || !req.body.userScore6 || !req.body.userScore7
+    || !req.body.userScore8 || !req.body.userScore9) {
+    return res.status(400).json({ error: 'Your set pars and your score per hole are all required!' });
   }
 
   const cardData = {
-    name: req.body.name,
-    pars: req.body.pars,
-    playerScore: req.body.playerScore,
+    cardPar1: req.body.cardPar1,
+    cardPar2: req.body.cardPar2,
+    cardPar3: req.body.cardPar3,
+    cardPar4: req.body.cardPar4,
+    cardPar5: req.body.cardPar5,
+    cardPar6: req.body.cardPar6,
+    cardPar7: req.body.cardPar7,
+    cardPar8: req.body.cardPar8,
+    cardPar9: req.body.cardPar9,
+
+    userScore1: req.body.userScore1,
+    userScore2: req.body.userScore2,
+    userScore3: req.body.userScore3,
+    userScore4: req.body.userScore4,
+    userScore5: req.body.userScore5,
+    userScore6: req.body.userScore6,
+    userScore7: req.body.userScore7,
+    userScore8: req.body.userScore8,
+    userScore9: req.body.userScore9,
+
     owner: req.session.account._id,
   };
 
@@ -34,7 +55,7 @@ const makeCard = (req, res) => {
   cardPromise.catch((err) => {
     console.log(err);
     if (err.code === 11000) {
-      return res.status(400).json({ error: 'This card already exists.' });
+      return res.status(400).json({ error: 'You have played this course already and created a card!' });
     }
 
     return res.status(400).json({ error: 'An error occurred' });
